@@ -1,0 +1,54 @@
+﻿@model LogsModel
+@using Fancyauth.Model
+@{
+    ViewBag.Title = "Logs";
+}
+<div class="row">
+    <h1>Logs</h1>
+    
+    <form asp-controller="Logs" asp-action="Index" method="post" class="form-horizontal" role="form">
+        <h4>Show logs</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="From" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="From" type="datetime" class="form-control" />
+                <span asp-validation-for="From" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="To" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="To" class="form-control" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Filter" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Filter" class="form-control" />
+                <span asp-validation-for="Filter" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Show" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <h2>Results</h2>
+    @foreach (var entry in Model.Logs)
+    {
+        var connected = entry as LogEntry.Connected;
+        var disconnected = entry as LogEntry.Disconnected;
+        var chat = entry as LogEntry.ChatMessage;
+
+        if (chat != null)
+        {
+            <p>@chat.Message</p>
+        }
+    }
+</div>

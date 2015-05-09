@@ -15,5 +15,22 @@
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>1187</DevelopmentServerPort>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\fancyauth\Fancyauth\Model\GuestAssociation.cs">
+      <Link>Model\GuestAssociation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\fancyauth\Fancyauth\Model\Invite.cs">
+      <Link>Model\Invite.cs</Link>
+    </Compile>
+    <Compile Include="..\..\fancyauth\Fancyauth\Model\LogEntry.cs">
+      <Link>Model\LogEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\fancyauth\Fancyauth\Model\OfflineNotification.cs">
+      <Link>Model\OfflineNotification.cs</Link>
+    </Compile>
+    <Compile Include="..\..\fancyauth\Fancyauth\Model\User.cs">
+      <Link>Model\User.cs</Link>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
