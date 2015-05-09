@@ -52,7 +52,7 @@
             <tbody>
                 @foreach (var gentry in Model.Logs.GroupBy(x => x.Log.When.Date))
                 {
-                    @foreach (var entry in gentry.Select((x, idx) => new { x.Log, x.Who, idx }))
+                    foreach (var entry in gentry.Select((x, idx) => new { x.Log, x.Who, idx }))
                     {
                         var connected = entry.Log as LogEntry.Connected;
                         var disconnected = entry.Log as LogEntry.Disconnected;
