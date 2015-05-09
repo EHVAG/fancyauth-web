@@ -39,16 +39,48 @@
     </form>
 </div>
 <div class="row">
-    <h2>Results</h2>
-    @foreach (var entry in Model.Logs)
-    {
-        var connected = entry as LogEntry.Connected;
-        var disconnected = entry as LogEntry.Disconnected;
-        var chat = entry as LogEntry.ChatMessage;
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Who</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var gentry in Model.Logs.GroupBy(x => x.Log.When.Date))
+                {
+                    @foreach (var entry in gentry.Select((x, idx) => new { x.Log, x.Who, idx }))
+                    {
+                        var connected = entry.Log as LogEntry.Connected;
+                        var disconnected = entry.Log as LogEntry.Disconnected;
+                        var chat = entry.Log as LogEntry.ChatMessage;
 
-        if (chat != null)
-        {
-            <p>@chat.Message</p>
-        }
-    }
+                        <tr>
+                            @if (entry.idx == 0)
+                            {
+                                <td rowspan="@gentry.Count()">@entry.Log.When.ToShortDateString()</td>
+                            }
+                            <td>@entry.Log.When.ToShortTimeString()</td>
+                            @if (connected != null)
+                            {
+                                <td colspan="2">@entry.Who connected</td>
+                            }
+                            else if (disconnected != null)
+                            {
+                                <td colspan="2">@entry.Who disconnected</td>
+                            }
+                            else if (chat != null)
+                            {
+                                <td>@entry.Who</td>
+                                <td style="overflow: hidden;">@Html.Sanitized(chat.Message)</td>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

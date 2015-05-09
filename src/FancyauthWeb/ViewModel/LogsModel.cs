@@ -9,10 +9,16 @@ namespace FancyauthWeb.ViewModel
 {
     public class LogsModel
     {
+        public class ListEntry
+        {
+            public LogEntry Log { get; set; }
+            public string Who { get; set; }
+        }
+
         public DateTime From { get; set; } = DateTime.UtcNow.AddDays(-1);
         public DateTime To { get; set; } = DateTime.UtcNow;
         public string Filter { get; set; } = null;
 
-        public IEnumerable<LogEntry> Logs { get; set; }
+        public IEnumerable<ListEntry> Logs { get; set; }
     }
 }

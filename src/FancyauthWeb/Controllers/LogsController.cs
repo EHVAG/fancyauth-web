@@ -22,7 +22,10 @@ namespace FancyauthWeb.Controllers
                 var query = context.Logs.Where(x => x.When > model.From && x.When < model.To);
                 if (!String.IsNullOrWhiteSpace(model.Filter))
                     query = query.OfType<LogEntry.ChatMessage>().Where(x => x.Message.Contains(model.Filter));
-                model.Logs = await query.ToArrayAsync();
+                var finalQuery = from entry in query
+                                 join user in context.Users on entry.WhoUId equals user.Id
+                                 select new LogsModel.ListEntry { Log = entry, Who = user.Name };
+                model.Logs = await finalQuery.OrderBy(x => x.Log.When).ToArrayAsync();
             }
 
             return View(model);
