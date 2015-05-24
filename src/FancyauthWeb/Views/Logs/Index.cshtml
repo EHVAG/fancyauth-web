@@ -61,9 +61,9 @@
                         <tr>
                             @if (entry.idx == 0)
                             {
-                                <td rowspan="@gentry.Count()">@entry.Log.When.ToShortDateString()</td>
+                                <td rowspan="@gentry.Count()">@entry.Log.When.LocalDateTime.ToShortDateString()</td>
                             }
-                            <td>@entry.Log.When.ToShortTimeString()</td>
+                            <td>@entry.Log.When.LocalDateTime.ToShortTimeString()</td>
                             @if (connected != null)
                             {
                                 <td colspan="2">@entry.Who connected</td>
