@@ -26,6 +26,8 @@ namespace FancyauthWeb.Controllers
                                  join user in context.Users on entry.WhoUId equals user.Id
                                  select new LogsModel.ListEntry { Log = entry, Who = user.Name };
                 model.Logs = await finalQuery.OrderBy(x => x.Log.When).ToArrayAsync();
+                foreach (var log in model.Logs)
+                    log.Log.When = log.Log.When.ToLocalTime();
             }
 
             return View(model);
