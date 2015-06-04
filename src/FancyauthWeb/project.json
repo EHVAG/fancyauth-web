@@ -19,13 +19,9 @@
 
     "Npgsql.EntityFramework": "2.2.5",
     "EntityFramework": "6.1.3",
-    "HtmlAgilityPack": "1.4.9"
+    "HtmlAgilityPack": "1.4.9",
+    "Fancyauth.Model": "1.0.0"
   },
-
-  "compile": [
-    "..\\..\\fancyauth\\Fancyauth\\Model\\*",
-    "..\\..\\fancyauth\\Fancyauth\\Model\\MusiG\\*"
-  ],
 
   "commands": {
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000",

@@ -19,6 +19,9 @@ namespace FancyauthWeb
         public Startup(IHostingEnvironment env)
         {
             // Setup configuration sources.
+            //Configuration = new Configuration()
+            //    .AddJsonFile("config.json")
+            //    .AddEnvironmentVariables();
         }
 
         public IConfiguration Configuration { get; set; }
@@ -26,6 +29,7 @@ namespace FancyauthWeb
         // This method gets called by the runtime.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.Configure<AppSettings>(Configuration.GetSubKey("AppSettings"), -1000, "");
 
             // Add MVC services to the services container.
             services.AddMvc();

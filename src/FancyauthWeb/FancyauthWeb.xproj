@@ -15,40 +15,5 @@
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>1187</DevelopmentServerPort>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\GuestAssociation.cs">
-      <Link>Model\GuestAssociation.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\Invite.cs">
-      <Link>Model\Invite.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\LogEntry.cs">
-      <Link>Model\LogEntry.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\Album.cs">
-      <Link>Model\MusiG\Album.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\Genre.cs">
-      <Link>Model\MusiG\Genre.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\Interpret.cs">
-      <Link>Model\MusiG\Interpret.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\Song.cs">
-      <Link>Model\MusiG\Song.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\SongRating.cs">
-      <Link>Model\MusiG\SongRating.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\MusiG\SongSuggestion.cs">
-      <Link>Model\MusiG\SongSuggestion.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\OfflineNotification.cs">
-      <Link>Model\OfflineNotification.cs</Link>
-    </Compile>
-    <Compile Include="..\..\fancyauth\Fancyauth\Model\User.cs">
-      <Link>Model\User.cs</Link>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
