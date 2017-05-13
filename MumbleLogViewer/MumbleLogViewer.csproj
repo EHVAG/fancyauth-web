@@ -58,15 +58,12 @@
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="AuthenticatedController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\AvatarController.cs" />
     <Compile Include="LongStringJsonConverter.cs" />
+    <Compile Include="Controllers\AvatarController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="App.config" />
-    <None Include="none.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -76,6 +73,9 @@
       <Project>{579BF5B7-C359-4543-9D74-9C57E9A82B1A}</Project>
       <Name>StatsHelix.Charizard</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="none.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,8 +13,26 @@ namespace MumbleLogViewer
 	[Controller]
 	public class AvatarController : AuthenticatedController
 	{
-		static byte[] NoImageAvailableImage = File.ReadAllBytes("none.png");
-		static HttpResponse NoImageAvailable = Data(File.ReadAllBytes("none.png"), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+		static byte[] NoImageAvailableImage = GetNoUserImage();
+		static HttpResponse NoImageAvailable = Data(GetNoUserImage(), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+
+		static byte[] GetNoUserImage()
+		{
+			var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+			using (var stream = assembly.GetManifestResourceStream("MumbleLogViewer.none.png"))
+			{
+				byte[] buffer = new byte[stream.Length];
+				int read = stream.Read(buffer, 0, buffer.Length);
+
+				if (read != buffer.Length)
+				{
+					Console.WriteLine("Couldn't read resource.");
+					throw new Exception("Couldn't read resource.");
+				}
+
+				return buffer;
+			}
+		}
 
 		public async Task<HttpResponse> Get(int user)
 		{

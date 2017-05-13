@@ -8,8 +8,7 @@ namespace MumbleLogViewer
 {
 	public class FancyContext : FancyContextBase
 	{
-		public FancyContext()
-	: base("name=FancyContext")
+		public FancyContext() : base("name=FancyContext")
 		{
 			this.Configuration.LazyLoadingEnabled = false;
 

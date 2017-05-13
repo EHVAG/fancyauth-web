@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MumbleLogViewer", "MumbleLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsHelix.Charizard", "..\StatsHelix.Charizard\StatsHelix.Charizard\StatsHelix.Charizard.csproj", "{579BF5B7-C359-4543-9D74-9C57E9A82B1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActuallyWorkingWebSockets", "..\StatsHelix.Charizard\ActuallyWorkingWebSockets\ActuallyWorkingWebSockets\ActuallyWorkingWebSockets.csproj", "{B099DD77-A799-43B7-9E59-EB769309290D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{579BF5B7-C359-4543-9D74-9C57E9A82B1A}.Debug|x86.Build.0 = Debug|Any CPU
 		{579BF5B7-C359-4543-9D74-9C57E9A82B1A}.Release|x86.ActiveCfg = Release|Any CPU
 		{579BF5B7-C359-4543-9D74-9C57E9A82B1A}.Release|x86.Build.0 = Release|Any CPU
+		{B099DD77-A799-43B7-9E59-EB769309290D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B099DD77-A799-43B7-9E59-EB769309290D}.Debug|x86.Build.0 = Debug|Any CPU
+		{B099DD77-A799-43B7-9E59-EB769309290D}.Release|x86.ActiveCfg = Release|Any CPU
+		{B099DD77-A799-43B7-9E59-EB769309290D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
