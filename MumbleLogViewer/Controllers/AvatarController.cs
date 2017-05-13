@@ -13,6 +13,9 @@ namespace MumbleLogViewer
 	[Controller]
 	public class AvatarController : AuthenticatedController
 	{
+		static byte[] NoImageAvailableImage = File.ReadAllBytes("none.png");
+		static HttpResponse NoImageAvailable = Data(File.ReadAllBytes("none.png"), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+
 		public async Task<HttpResponse> Get(int user)
 		{
 			using (var context = new FancyContext())
@@ -20,7 +23,7 @@ namespace MumbleLogViewer
 				var texture = await context.Users.Where(a => a.Id == user).Select(a => a.Membership.Texture).SingleAsync();
 
 				if (texture == null || texture.Length == 0)
-					return Data(File.ReadAllBytes("none.png"), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+					return NoImageAvailable;
 
 
 				return Data(texture, HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
@@ -34,7 +37,7 @@ namespace MumbleLogViewer
 				var texture = await context.Users.Where(a => a.Name == name).Select(a => a.Membership.Texture).SingleOrDefaultAsync();
 
 				if (texture == null || texture.Length == 0)
-					return Data(File.ReadAllBytes("none.png"), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+					return NoImageAvailable;
 
 				return Data(texture, HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
 			}
@@ -47,7 +50,7 @@ namespace MumbleLogViewer
 				var texture = (await GetCurrentUser()).Membership.Texture;
 
 				if (texture == null || texture.Length == 0)
-					return Data(File.ReadAllBytes("none.png"), HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
+					return NoImageAvailable;
 
 				return Data(texture, HttpStatus.Ok, ContentType.Custom).SetHeader("Content-Type", "image/png");
 			}
