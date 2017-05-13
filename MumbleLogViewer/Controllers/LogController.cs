@@ -41,8 +41,6 @@ namespace MumbleLogViewer
 			{
 				var logs = await context.Logs.Include(a => a.Who).Where(a => a.When > Start && a.When < End).OrderByDescending(a => a.When).ToArrayAsync();
 
-				if (logs.Length == 0)
-					return Json(new object[0]);
 
 				var res = GroupMessages(logs);
 
